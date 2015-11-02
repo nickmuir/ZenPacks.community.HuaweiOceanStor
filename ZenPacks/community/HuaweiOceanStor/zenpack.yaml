@@ -1,1 +1,26 @@
 name: ZenPacks.community.HuaweiOceanStor
+
+classes:
+  OceanStorDevice:
+    base: [zenpacklib.Device]
+    label: OceanStor
+  OceanStorController:
+    base: [zenpacklib.Component]
+    label: Controller
+    properties:
+      controllerhealth:
+        label: Health
+      controllerstatus:
+        label: Status
+      controllerrole:
+        label: Role
+      controllercache:
+        label: Cache
+
+device_classes:
+  /Storage/Huawei/OceanStor:
+    zProperties:
+      zPythonClass: ZenPacks.community.HuaweiOceanStor.OceanStorDevice
+
+class_relationships:
+  - OceanStorDevice 1:MC OceanStorController
